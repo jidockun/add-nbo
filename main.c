@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <arpa/inet.h>
 
 uint32_t swap_dword(uint32_t v) {
-    return  (v & 0xff000000) >> 24 | (v & 0x00ff0000) >> 8 |
+    /*return  (v & 0xff000000) >> 24 | (v & 0x00ff0000) >> 8 |
             (v & 0x0000ff00) << 8 | (v & 0x000000ff) << 24;
+    */
+    return ntohl(v);
 }
 
 uint32_t read_dword(const char* path) {
